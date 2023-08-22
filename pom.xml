@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://3.111.55.35:8081/repository/first-repo-realse/</url>
+	      <url>http://3.110.84.247:8081/repository/first-repo-realase/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://3.111.55.35:8081/repository/first-repo-snap/</url>
+	      <url>http://3.110.84.247:8081/repository/first-repo-snap/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
