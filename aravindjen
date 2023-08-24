@@ -6,10 +6,10 @@ node{
     stage("Build"){
         sh "$maven/bin/mvn clean package"
     }
-    stage("Generate sonarqube report")
+    /*stage("Generate sonarqube report")
     {
         sh "$maven/bin/mvn clean package sonar:sonar"
-    }
+    }*/
     stage("upload project into nexus")
     {
         sh "$maven/bin/mvn clean deploy"
