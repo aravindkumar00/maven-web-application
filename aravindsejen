@@ -1,0 +1,35 @@
+pipeline{
+    agent any
+    tools{
+        maven "maven3.9.4"
+    }
+    
+    stages{
+        stage("Clone the project"){
+            steps{
+                git credentialsId: '087b1f83-af76-4103-95c2-770a4e60e7ff', url: 'https://github.com/aravindkumar00/maven-web-application.git'
+            }
+        }
+        stage("Build a project")
+        {
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage("Add a projectrepo to nexus repo")
+        {
+            steps{
+                sh "mvn deploy"
+            }
+        }
+        stage("deploy to tomcat server")
+        {
+            steps{
+                sshagent(['4f8abd4a-76f4-4523-9a5f-ba65704ecce2']) 
+                {
+                    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@43.205.203.12:/opt/apache-tomcat-9.0.79/webapps"
+                }
+            }
+        }
+    }
+}
