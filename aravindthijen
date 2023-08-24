@@ -1,0 +1,15 @@
+pipeline{
+agent any
+parameters {
+  choice choices: ['master', 'dev', 'qa'], name: 'branchname'
+}
+
+stages{
+  stage("clone the project")
+{
+  steps{
+     git credentialsId:$branchname '087b1f83-af76-4103-95c2-770a4e60e7ff', url: 'https://github.com/aravindkumar00/maven-web-application.git'
+  }
+}
+}
+}
