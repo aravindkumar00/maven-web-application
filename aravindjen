@@ -1,7 +1,7 @@
 node{
     def maven=tool name:"maven"
-    echo "build nuber : "${env.BUILD_NUMBER}"
-    echo "branch name  : " ${env.BRANCH_NAME}"
+    echo "build nuber : ${env.BUILD_NUMBER}"
+    echo "branch name  : ${env.BRANCH_NAME}"
     stage("clone the project"){
         git credentialsId: '087b1f83-af76-4103-95c2-770a4e60e7ff', url: 'https://github.com/aravindkumar00/maven-web-application/'
     }
