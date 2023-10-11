@@ -9,7 +9,7 @@ node{
     /*stage("Generate sonarqube report")
     {
         sh "$maven/bin/mvn clean package sonar:sonar"
-    }*/
+    }
     stage("upload project into nexus")
     {
         sh "$maven/bin/mvn clean deploy"
@@ -20,5 +20,5 @@ node{
         {
                 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@43.205.203.12:/opt/apache-tomcat-9.0.79/webapps"
         }
-    }
+    }*/
 }
