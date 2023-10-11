@@ -2,6 +2,8 @@ node{
     def maven=tool name:"maven"
     echo "build nuber : ${env.BUILD_NUMBER}"
     echo "branch name  : ${env.BRANCH_NAME}"
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '2')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '2')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
     stage("clone the project"){
         git credentialsId: '087b1f83-af76-4103-95c2-770a4e60e7ff', url: 'https://github.com/aravindkumar00/maven-web-application/'
     }
