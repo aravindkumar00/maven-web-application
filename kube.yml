@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maven-dp
+  namespace: test-ns
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 1 
+  selector:
+    matchLabels:
+      app: maven
+  template:
+    metadata:
+      name: maven-dp-pod
+      labels: 
+        app: maven
+    spec:
+      containers:
+      - name: maven-dp-con
+        image: 074403518085.dkr.ecr.ap-south-1.amazonaws.com/jenkins:1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maven-ser # name of the service
+  namespace: test-ns # name of the namespace
+spec:
+  type: NodePort #or ClusterIp or Loadbalncer # types of the service
+  selector:
+    app: maven
+  ports:
+  - port: 80
+    targetPort: 8080
