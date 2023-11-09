@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: maven-dp-con
-        image: 074403518085.dkr.ecr.ap-south-1.amazonaws.com/jenkins:1
+        image: aravindkumar123/re-maven:1
         ports:
         - containerPort: 8080
 ---
