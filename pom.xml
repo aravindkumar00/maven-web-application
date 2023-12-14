@@ -96,13 +96,13 @@
 	<distributionManagement>
 	
 	    <repository>
-	      <id>nexus</id>
+	      <id>jfrog</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://3.110.46.94:8081/repository/first-repo-realase/</url>
+	      <urlhttp://13.235.31.52:8082/artifactory/example-repo-local/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
-	      <id>nexus</id>
+	      <id>jfrog</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
 	      <url>http://13.126.27.174:8081/repository/first-repo-snap/</url>
 	    </snapshotRepository>
